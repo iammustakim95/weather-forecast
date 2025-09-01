@@ -623,6 +623,7 @@ body.dark-theme {
   color: white;
   padding: 15px 25px;
   font-weight: 600;
+  font-size: large;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -630,7 +631,8 @@ body.dark-theme {
   gap: 10px;
   transition: var(--transition);
   margin: 20px auto 0;
-  width: 300px;
+  width: auto;
+  height: 100px;
   box-shadow: 0 4px 15px rgba(52, 168, 83, 0.4);
 }
 
@@ -1159,7 +1161,13 @@ input:checked + .slider:before {
   }
   .glass-card {
     padding: 20px;
+    
   }
+  .hourly-container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .current-weather {
     padding: 20px;
   }
