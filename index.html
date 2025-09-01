@@ -419,30 +419,9 @@
           </div>
 
           <div class="travel-features">
-            <div class="feature-card">
-              <div class="feature-icon">
-                <i class="fas fa-user-shield"></i>
-              </div>
-              <h3>Safety Checklist</h3>
-              <p>Essential items and preparations for your trip</p>
-            </div>
+           
 
-            <div class="feature-card">
-              <div class="feature-icon">
-                <i class="fas fa-map-marked-alt"></i>
-              </div>
-              <h3>Route Planner</h3>
-              <p>Weather-optimized travel routes</p>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon">
-                <i class="fas fa-hotel"></i>
-              </div>
-              <h3>Safe Havens</h3>
-              <p>Nearby shelters and safe locations</p>
-            </div>
-          </div>
+            
 
           <div class="emergency-contacts">
             <div class="contact-card">
@@ -453,8 +432,7 @@
               <div class="contact-number">100</div>
               <button
                 class="sos-button"
-                style="padding: 8px 15px; font-size: 14px"
-              >
+                style="padding: 8px 15px; font-size: 14px" onclick="callNowp()">
                 <i class="fas fa-phone-alt"></i> Call
               </button>
             </div>
@@ -502,7 +480,7 @@
             </div>
           </div>
 
-          <button class="whatsapp-button" id="shareLocation">
+          <button class="whatsapp-button" id="shareLocation" onclick="shareLocation()">
             <i class="fab fa-whatsapp"></i> Share Live Location via WhatsApp
           </button>
         </div>

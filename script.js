@@ -840,3 +840,45 @@
     document.getElementById(divId).classList.add('active');
   }
 
+
+
+
+
+
+
+
+
+
+   function shareLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+
+          // Google Maps link
+          const mapsUrl = `https://www.google.com/maps?q=${lat},${lon}`;
+
+          // If Web Share API is supported (mobile browsers)
+          if (navigator.share) {
+            navigator.share({
+              title: "My Location",
+              text: "Here is my current location:",
+              url: mapsUrl
+            }).catch(err => console.log("Share failed:", err));
+          } else {
+            // Fallback: copy link or show
+            alert("Share this link: " + mapsUrl);
+          }
+        },
+        error => {
+          alert("Error getting location: " + error.message);
+        });
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+
+    function callNowp() {
+      // Replace with your number
+      window.location.href = "tel:+91100";
+    }
