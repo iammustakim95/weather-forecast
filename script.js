@@ -878,20 +878,7 @@
       }
     }
 
-    function callNowp() {
-      // Replace with your number
-      window.location.href = "tel:100";
-    }
 
-       function callNowa() {
-      // Replace with your number
-      window.location.href = "tel:108";
-    }
-       function callNowf() {
-      // Replace with your number
-      window.location.href = "tel:101";
-    }
-           function callNowd() {
-      // Replace with your number
-      window.location.href = "tel:1078";
+    function callNow(number) {
+      window.location.href = "tel:" + number;
     }
