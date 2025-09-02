@@ -153,97 +153,8 @@
             }
         }
         
-        // Show registration modal
-        function showRegistration() {
-            registrationModal.style.display = 'flex';
-        }
-        
-        // Hide registration modal
-        function hideRegistration() {
-            registrationModal.style.display = 'none';
-        }
-        
-        // Show registration form
-        function showRegistrationForm() {
-            registrationForm.style.display = 'block';
-            otpVerification.style.display = 'none';
-        }
-        
-        // Register user
-        function registerUser() {
-            const name = document.getElementById('userName').value.trim();
-            const email = document.getElementById('userEmail').value.trim();
-            const emergencyContact = document.getElementById('emergencyContact').value.trim();
-            
-            if (!name || !email || !emergencyContact) {
-                showNotification('Error', 'Please fill all fields');
-                return;
-            }
-            
-            if (!validateEmail(email)) {
-                showNotification('Error', 'Please enter a valid email address');
-                return;
-            }
-            
-            userData = {
-                name,
-                email,
-                emergencyContact,
-                registeredAt: new Date().toISOString()
-            };
-            
-            // Show OTP verification
-            registeredEmail.textContent = email;
-            registrationForm.style.display = 'none';
-            otpVerification.style.display = 'block';
-            
-            // Generate and send OTP (simulated)
-            generateOtp();
-        }
-        
-        // Generate OTP
-        function generateOtp() {
-            userData.otp = Math.floor(100000 + Math.random() * 900000).toString();
-            document.getElementById('demoOtpCode').textContent = userData.otp;
-            showNotification('OTP Sent', `OTP sent to ${userData.email}: ${userData.otp} (simulated for demo)`);
-            
-            // Enable resend OTP after 30 seconds
-            resendOtp.style.pointerEvents = 'none';
-            resendOtp.style.opacity = '0.5';
-            setTimeout(() => {
-                resendOtp.style.pointerEvents = 'auto';
-                resendOtp.style.opacity = '1';
-            }, 30000);
-        }
-        
-        // Verify OTP
-        function verifyOtp() {
-            const otpDigits = document.querySelectorAll('.otp-digit');
-            let enteredOtp = '';
-            otpDigits.forEach(digit => {
-                enteredOtp += digit.value;
-            });
-            
-            if (enteredOtp === userData.otp) {
-                // Save user data
-                localStorage.setItem('weatherUser', JSON.stringify(userData));
-                
-                // Hide modal
-                hideRegistration();
-                
-                // Welcome notification
-                showNotification(`Welcome ${userData.name}!`, `You're all set up with Smart Weather Forecast.`);
-            } else {
-                showNotification('Error', 'Invalid OTP. Please try again.');
-            }
-        }
-        
-        // Validate email
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-        
+
+      
         // Toggle auto backup
         function toggleAutoBackup() {
             if (autoBackup.checked) {
@@ -879,6 +790,64 @@
     }
 
 
-    function callNow(number) {
-      window.location.href = "tel:" + number;
+
+
+
+    document.getElementById('registerBtn').addEventListener('click', function () {
+    const name = document.getElementById('userName').value.trim();
+    const email = document.getElementById('userEmail').value.trim();
+    const contact = document.getElementById('emergencyContact').value.trim();
+
+    if (!name || !email || !contact) {
+      alert('Please fill out all fields.');
+      return;
     }
+
+    // Hide the modal
+    document.getElementById('registrationModal').style.display = 'none';
+
+    // Show profile toggle and set user name
+    document.getElementById('userDisplayName').textContent = name;
+    document.getElementById('profileToggle').style.display = 'flex';
+  });
+
+  // Toggle dropdown menu on profile button click
+  document.getElementById('profileBtn').addEventListener('click', function () {
+    const dropdown = document.getElementById('profileDropdown');
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Optional: hide dropdown if clicked outside
+  document.addEventListener('click', function (e) {
+    const profileToggle = document.getElementById('profileToggle');
+    const dropdown = document.getElementById('profileDropdown');
+
+    if (!profileToggle.contains(e.target)) {
+      dropdown.style.display = 'none';
+    }
+  });
+
+
+
+   // Logout functionality
+  document.getElementById('logoutLink').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    // Hide profile toggle
+    document.getElementById('profileToggle').style.display = 'none';
+
+    // Clear form fields (optional)
+    document.getElementById('userName').value = '';
+    document.getElementById('userEmail').value = '';
+    document.getElementById('emergencyContact').value = '';
+
+    // Show registration modal again
+    document.getElementById('registrationModal').style.display = 'block';
+
+    // Hide dropdown in case it's still open
+    document.getElementById('profileDropdown').style.display = 'none';
+  });
+
+
+
+

@@ -398,7 +398,7 @@ body.dark-theme {
 
 /* Weather Stats */
 .weather-stats {
-  margin-top: 100px;
+  margin-top: 80px;
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
@@ -1274,3 +1274,37 @@ input:checked + .slider:before {
     cursor: pointer;
     background: rgba(255, 255, 255, 0.40);
   }
+
+.toggle-image{
+  height: 50px;
+  width: auto;
+  border-radius: 50%;
+}
+
+
+
+
+
+.profileToggle p{
+    color: #0d1b2a;
+    font-weight: 500;
+    font-size: medium;
+}
+
+.profileToggle button{
+  margin-top: 10px;
+   border-radius: 10%;
+   background-color: #ccc;
+   padding: 5px;
+}
+.profileToggle button a{
+   text-decoration: none;
+   color: #1b263b;
+   
+}
+
+
+
+
+
+
