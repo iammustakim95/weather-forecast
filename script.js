@@ -849,7 +849,9 @@
   });
 
 
-
+  function callNow(number) {
+      window.location.href = "tel:" + number;
+    }
 
 
 
