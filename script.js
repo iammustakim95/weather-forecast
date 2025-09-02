@@ -851,3 +851,15 @@
 
 
 
+
+
+
+
+
+  document.addEventListener('click', (e) => {
+  if (!searchInput.contains(e.target) && !suggestionsContainer.contains(e.target)) {
+    suggestionsContainer.classList.remove('visible');
+  }
+});
+
+

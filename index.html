@@ -129,35 +129,16 @@
               placeholder="Enter Your contact number"
             />
           </div>
-   
-
-
-
-             
-
-
-
-
 
           <div class="location-access">
             <i class="fas fa-check-circle"></i>
             <span>Auto location access enabled for emergency services</span>
           </div>
 
-          <button class="btn" id="registerBtn" onclick="verifyOtp()">Register</button>
+          <button class="btn" id="registerBtn" onclick="verifyOtp()">
+            Register
+          </button>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-     
       </div>
     </div>
 
@@ -165,8 +146,8 @@
       <!-- Top Bar -->
       <div class="top-bar">
         <div class="logo">
-          <i class="fas fa-cloud-sun"></i>
-          Weather Forecast
+          <img src="/images/weather-app.png" class="logo1" />
+          <div class="title-name">Weather Forecast</div>
         </div>
 
         <div class="search-container">
@@ -176,8 +157,9 @@
             placeholder="Search city..."
             type="text"
             placeholder="Enter your address"
-            style="width: 300px"
+            style="position: relative; width: 300px"
           />
+          <div id="suggestionsContainer"></div>
           <button id="searchBtn"><i class="fas fa-search"></i></button>
           <div class="suggestions-container" id="suggestionsContainer">
             <!-- Suggestions will appear here -->
@@ -190,242 +172,261 @@
         </button>
 
         <!-- Profile Dropdown Toggle -->
-<div id="profileToggle" style="display: none; position: relative;" class="profileToggle">
-  <button id="profileBtn" style="background: none; border: none; cursor: pointer; display: flex; align-items: center;">
-    <img src="images/profile-icon.jpg" alt="Profile" class="toggle-image" />
-   
-    <i class="fas fa-caret-down" style="margin-left: 5px;"></i>
-  </button>
+        <div
+          id="profileToggle"
+          style="display: none; position: relative"
+          class="profileToggle"
+        >
+          <button
+            id="profileBtn"
+            style="
+              background: none;
+              border: none;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+            "
+          >
+            <img src="images/account.png" alt="Profile" class="toggle-image" />
 
-  <!-- Dropdown Menu (optional) -->
-  <div id="profileDropdown" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid #ccc; padding: 10px; min-width: 150px;">
-    <p><span id="userDisplayName">User Name</span></p>
-   <button><a href="#" id="logoutLink">Logout</a> </button>
-  </div>
-</div>
+            <i class="fas fa-caret-down" style="margin-left: 5px"></i>
+          </button>
 
-</div>
+          <!-- Dropdown Menu (optional) -->
+          <div
+            id="profileDropdown"
+            style="
+              display: none;
+              position: absolute;
+              top: 100%;
+              right: 0;
+              background: white;
+              border: 1px solid #ccc;
+              padding: 10px;
+              min-width: 150px;
+            "
+          >
+            <p><span id="userDisplayName">User Name</span></p>
+            <button>
+              <img src="/images/logout.jpeg" alt="logout" class="logout-logo" />
+              <a href="#" id="logoutLink">Logout</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Current Weather Card -->
+      <div class="glass-card-one">
+        <div class="current-weather">
+          <div class="weather-info">
+            <div class="weather-condition">
+              <i id="weatherIconMain" class="fas fa-sun"></i>
+              <span id="weatherDesc">Sunny</span>
+            </div>
+            <div class="temp-large" id="currentTemp">24°</div>
+            <div class="location-info">
+              <i class="fas fa-location-dot"></i>
+              <span id="location">New York, US</span>
+            </div>
 
+            <div class="location-detect" id="detectLocation">
+              <i class="fas fa-location-crosshairs"></i>
+              <span>Detect My Location</span>
+            </div>
 
+            <!-- Weather Stats -->
+            <div class="weather-stats">
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="fas fa-wind"></i>
+                </div>
+                <div>
+                  <div class="stat-value" id="windSpeed">12 km/h</div>
+                  <div class="stat-label">Wind</div>
+                </div>
+              </div>
 
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="fas fa-tint"></i>
+                </div>
+                <div>
+                  <div class="stat-value" id="humidity">65%</div>
+                  <div class="stat-label">Humidity</div>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="fas fa-temperature-high"></i>
+                </div>
+                <div>
+                  <div class="stat-value" id="feelsLike">26°</div>
+                  <div class="stat-label">Feels Like</div>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="fas fa-sun"></i>
+                </div>
+                <div>
+                  <div class="stat-value" id="sunrise">6:45 AM</div>
+                  <div class="stat-label">Sunrise</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="weather-icon" id="weatherIconLarge">
+            <i class="fas fa-sun"></i>
+          </div>
+        </div>
       </div>
 
-      <!-- Main Content -->
-      <div class="main-content">
-        <!-- Current Weather Card -->
-        <div class="glass-card-one">
-          <div class="current-weather">
-            <div class="weather-info">
-              <div class="weather-condition">
-                <i id="weatherIconMain" class="fas fa-sun"></i>
-                <span id="weatherDesc">Sunny</span>
-              </div>
-              <div class="temp-large" id="currentTemp">24°</div>
-              <div class="location-info">
-                <i class="fas fa-location-dot"></i>
-                <span id="location">New York, US</span>
-              </div>
-
-              <div class="location-detect" id="detectLocation">
-                <i class="fas fa-location-crosshairs"></i>
-                <span>Detect My Location</span>
-              </div>
-
-              <!-- Weather Stats -->
-              <div class="weather-stats">
-                <div class="stat-item">
-                  <div class="stat-icon">
-                    <i class="fas fa-wind"></i>
-                  </div>
-                  <div>
-                    <div class="stat-value" id="windSpeed">12 km/h</div>
-                    <div class="stat-label">Wind</div>
-                  </div>
-                </div>
-
-                <div class="stat-item">
-                  <div class="stat-icon">
-                    <i class="fas fa-tint"></i>
-                  </div>
-                  <div>
-                    <div class="stat-value" id="humidity">65%</div>
-                    <div class="stat-label">Humidity</div>
-                  </div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-icon">
-                    <i class="fas fa-temperature-high"></i>
-                  </div>
-                  <div>
-                    <div class="stat-value" id="feelsLike">26°</div>
-                    <div class="stat-label">Feels Like</div>
-                  </div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-icon">
-                    <i class="fas fa-sun"></i>
-                  </div>
-                  <div>
-                    <div class="stat-value" id="sunrise">6:45 AM</div>
-                    <div class="stat-label">Sunrise</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="weather-icon" id="weatherIconLarge">
-              <i class="fas fa-sun"></i>
-            </div>
-          </div>
+      <div class="weather-forecast">
+        <div class="buttons">
+          <button onclick="showDiv('div1')">Hourly Forecast</button>
+          <button onclick="showDiv('div2')">7-Day Forecast</button>
         </div>
 
-        <div class="weather-forecast">
-          <div class="buttons">
-            <button onclick="showDiv('div1')">Hourly Forecast</button>
-            <button onclick="showDiv('div2')">7-Day Forecast</button>
-          </div>
+        <div class="slider-weather">
+          <div class="slide active" id="div1">
+            <!-- Hourly Forecast -->
+            <div class="glass-card">
+              <h2
+                style="
+                  margin-bottom: 20px;
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <i class="fas fa-clock"></i> Hourly Forecast
+              </h2>
 
-          <div class="slider-weather">
-            <div class="slide active" id="div1">
-              <!-- Hourly Forecast -->
-              <div class="glass-card">
-                <h2
-                  style="
-                    margin-bottom: 20px;
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                  "
-                >
-                  <i class="fas fa-clock"></i> Hourly Forecast
-                </h2>
-
-                <div class="hourly-forecast">
-                  <div class="hourly-container" id="hourlyForecast">
-                    <!-- Hourly items will be added here dynamically -->
-                  </div>
+              <div class="hourly-forecast">
+                <div class="hourly-container" id="hourlyForecast">
+                  <!-- Hourly items will be added here dynamically -->
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="slide" id="div2">
-              <!-- Weekly Forecast -->
-              <div class="glass-card">
-                <h2
-                  style="
-                    margin-bottom: 20px;
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                  "
-                >
-                  <i class="fas fa-calendar-week"></i> 7-Day Forecast
-                </h2>
+          <div class="slide" id="div2">
+            <!-- Weekly Forecast -->
+            <div class="glass-card">
+              <h2
+                style="
+                  margin-bottom: 20px;
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <i class="fas fa-calendar-week"></i> 7-Day Forecast
+              </h2>
 
-                <div class="weekly-forecast" id="weeklyForecast">
-                  <!-- Day cards will be added here dynamically -->
-                </div>
+              <div class="weekly-forecast" id="weeklyForecast">
+                <!-- Day cards will be added here dynamically -->
               </div>
             </div>
           </div>
         </div>
-        <!-- Weather Advisory -->
-        <div class="glass-card">
-          <h2
-            style="
-              margin-bottom: 20px;
-              display: flex;
-              align-items: center;
-              gap: 10px;
-            "
-          >
-            <i class="fas fa-exclamation-circle"></i> Weather Advisory
-          </h2>
+      </div>
+      <!-- Weather Advisory -->
+      <div class="glass-card">
+        <h2
+          style="
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          "
+        >
+          <i class="fas fa-exclamation-circle"></i> Weather Advisory
+        </h2>
 
-          <div class="advisory-cards">
-            <div class="advisory-card" id="healthAdvisory">
-              <h4><i class="fas fa-heartbeat"></i> Health Advisory</h4>
-              <ul id="healthTips">
-                <li>UV index is high today - use sunscreen</li>
-                <li>Good air quality - suitable for outdoor activities</li>
-                <li>Stay hydrated throughout the day</li>
-              </ul>
-            </div>
+        <div class="advisory-cards">
+          <div class="advisory-card" id="healthAdvisory">
+            <h4><i class="fas fa-heartbeat"></i> Health Advisory</h4>
+            <ul id="healthTips">
+              <li>UV index is high today - use sunscreen</li>
+              <li>Good air quality - suitable for outdoor activities</li>
+              <li>Stay hydrated throughout the day</li>
+            </ul>
+          </div>
 
-            <div class="advisory-card" id="activityAdvisory">
-              <h4><i class="fas fa-hiking"></i> Activity Suggestions</h4>
-              <ul id="activityTips">
-                <li>Great day for beach activities</li>
-                <li>Ideal conditions for hiking</li>
-                <li>Perfect weather for outdoor sports</li>
-              </ul>
-            </div>
+          <div class="advisory-card" id="activityAdvisory">
+            <h4><i class="fas fa-hiking"></i> Activity Suggestions</h4>
+            <ul id="activityTips">
+              <li>Great day for beach activities</li>
+              <li>Ideal conditions for hiking</li>
+              <li>Perfect weather for outdoor sports</li>
+            </ul>
+          </div>
 
-            <div class="advisory-card" id="travelAdvisory">
-              <h4><i class="fas fa-plane-departure"></i> Travel Advisory</h4>
-              <ul id="travelTips">
-                <li>No travel disruptions expected</li>
-                <li>Road conditions are excellent</li>
-                <li>Flight delays unlikely</li>
-              </ul>
-            </div>
+          <div class="advisory-card" id="travelAdvisory">
+            <h4><i class="fas fa-plane-departure"></i> Travel Advisory</h4>
+            <ul id="travelTips">
+              <li>No travel disruptions expected</li>
+              <li>Road conditions are excellent</li>
+              <li>Flight delays unlikely</li>
+            </ul>
           </div>
         </div>
+      </div>
 
-        <!-- Data Protection -->
-        <div class="glass-card">
-          <h2
-            style="
-              margin-bottom: 20px;
-              display: flex;
-              align-items: center;
-              gap: 10px;
-            "
-          >
-            <i class="fas fa-shield-alt"></i> Data Protection
-          </h2>
+      <!-- Data Protection -->
+      <div class="glass-card">
+        <h2
+          style="
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          "
+        >
+          <i class="fas fa-shield-alt"></i> Data Protection
+        </h2>
 
-          <div class="data-protection">
-            <div class="protection-item">
-              <i class="fas fa-database"></i>
-              <div>Local backup stored for 24 hours</div>
-            </div>
+        <div class="data-protection">
+          <div class="protection-item">
+            <i class="fas fa-database"></i>
+            <div>Local backup stored for 24 hours</div>
+          </div>
 
-            <div class="protection-item">
-              <i class="fas fa-shield-virus"></i>
-              <div>Service failure protection active</div>
-            </div>
+          <div class="protection-item">
+            <i class="fas fa-shield-virus"></i>
+            <div>Service failure protection active</div>
+          </div>
 
-            <div class="protection-item">
-              <i class="fas fa-cloud-upload-alt"></i>
-              <div>Enable Auto Backup</div>
-              <label class="toggle-switch protection-toggle">
-                <input type="checkbox" id="autoBackup" checked />
-                <span class="slider"></span>
-              </label>
-            </div>
+          <div class="protection-item">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <div>Enable Auto Backup</div>
+            <label class="toggle-switch protection-toggle">
+              <input type="checkbox" id="autoBackup" checked />
+              <span class="slider"></span>
+            </label>
           </div>
         </div>
+      </div>
 
-        <!-- SOS & Travel Safety Panel -->
-        <div class="sos-panel" id="sosPanel">
-          <div class="sos-header">
-            <i class="fas fa-shield-alt" style="font-size: 28px"></i>
-            <h2>Travel Safety & SOS Mode</h2>
-          </div>
+      <!-- SOS & Travel Safety Panel -->
+      <div class="sos-panel" id="sosPanel">
+        <div class="sos-header">
+          <i class="fas fa-shield-alt" style="font-size: 28px"></i>
+          <h2>Travel Safety & SOS Mode</h2>
+        </div>
 
-          <div class="sos-banner">
-            <p>
-              <i class="fas fa-shield-alt"></i> Safety Mode Activated - Your
-              protection is our priority!
-            </p>
-          </div>
+        <div class="sos-banner">
+          <p>
+            <i class="fas fa-shield-alt"></i> Safety Mode Activated - Your
+            protection is our priority!
+          </p>
+        </div>
 
-          <div class="travel-features">
-           
-
-            
-
+        <div class="travel-features">
           <div class="emergency-contacts">
             <div class="contact-card">
               <div class="contact-icon">
@@ -435,7 +436,9 @@
               <div class="contact-number">100</div>
               <button
                 class="sos-button"
-                style="padding: 8px 15px; font-size: 14px" onclick="callNow('100')">
+                style="padding: 8px 15px; font-size: 14px"
+                onclick="callNow('100')"
+              >
                 <i class="fas fa-phone-alt"></i> Call
               </button>
             </div>
@@ -448,7 +451,9 @@
               <div class="contact-number">108</div>
               <button
                 class="sos-button"
-                style="padding: 8px 15px; font-size: 14px" onclick="callNow('108')" >
+                style="padding: 8px 15px; font-size: 14px"
+                onclick="callNow('108')"
+              >
                 <i class="fas fa-phone-alt"></i> Call
               </button>
             </div>
@@ -461,7 +466,8 @@
               <div class="contact-number">101</div>
               <button
                 class="sos-button"
-                style="padding: 8px 15px; font-size: 14px" onclick="callNow('101')"
+                style="padding: 8px 15px; font-size: 14px"
+                onclick="callNow('101')"
               >
                 <i class="fas fa-phone-alt"></i> Call
               </button>
@@ -475,14 +481,19 @@
               <div class="contact-number">1078</div>
               <button
                 class="sos-button"
-                style="padding: 8px 15px; font-size: 14px"  onclick="callNow('1078')"
+                style="padding: 8px 15px; font-size: 14px"
+                onclick="callNow('1078')"
               >
                 <i class="fas fa-phone-alt"></i> Call
               </button>
             </div>
           </div>
 
-          <button class="whatsapp-button" id="shareLocation" onclick="shareLocation()">
+          <button
+            class="whatsapp-button"
+            id="shareLocation"
+            onclick="shareLocation()"
+          >
             <i class="fab fa-whatsapp"></i> Share Live Location via WhatsApp
           </button>
         </div>
