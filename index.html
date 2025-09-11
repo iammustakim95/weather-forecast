@@ -146,7 +146,7 @@
       <!-- Top Bar -->
       <div class="top-bar">
         <div class="logo">
-          <img src="images/weather-app.png" class="logo1" />
+          <img src="images/icon whether.png" class="logo1" />
           <div class="title-name">Weather Forecast</div>
         </div>
 
@@ -434,11 +434,13 @@
               </div>
               <div class="contact-name">Police</div>
               <div class="contact-number">100</div>
-              <div class="sos-all-button">
-                <button class="sos-button" onclick="callNow('100')">
-                  <i class="fas fa-phone-alt"></i> Call
-                </button>
-              </div>
+              <button
+                class="sos-button"
+                style="padding: 8px 15px; font-size: 14px"
+                onclick="callNow('100')"
+              >
+                <i class="fas fa-phone-alt"></i> Call
+              </button>
             </div>
 
             <div class="contact-card">
@@ -447,11 +449,13 @@
               </div>
               <div class="contact-name">Ambulance</div>
               <div class="contact-number">108</div>
-              <div class="sos-all-button">
-                <button class="sos-button" onclick="callNow('108')">
-                  <i class="fas fa-phone-alt"></i> Call
-                </button>
-              </div>
+              <button
+                class="sos-button"
+                style="padding: 8px 15px; font-size: 14px"
+                onclick="callNow('108')"
+              >
+                <i class="fas fa-phone-alt"></i> Call
+              </button>
             </div>
 
             <div class="contact-card">
@@ -460,11 +464,13 @@
               </div>
               <div class="contact-name">Fire</div>
               <div class="contact-number">101</div>
-              <div class="sos-all-button">
-                <button class="sos-button" onclick="callNow('101')">
-                  <i class="fas fa-phone-alt"></i> Call
-                </button>
-              </div>
+              <button
+                class="sos-button"
+                style="padding: 8px 15px; font-size: 14px"
+                onclick="callNow('101')"
+              >
+                <i class="fas fa-phone-alt"></i> Call
+              </button>
             </div>
 
             <div class="contact-card">
@@ -473,23 +479,28 @@
               </div>
               <div class="contact-name">Disaster Management</div>
               <div class="contact-number">1078</div>
-              <div class="sos-all-button">
-                <button class="sos-button" onclick="callNow('1078')">
-                  <i class="fas fa-phone-alt"></i> Call
-                </button>
-              </div>
+              <button
+                class="sos-button"
+                style="padding: 8px 15px; font-size: 14px"
+                onclick="callNow('1078')"
+              >
+                <i class="fas fa-phone-alt"></i> Call
+              </button>
             </div>
-            <button
-              class="whatsapp-button"
-              id="shareLocation"
-              onclick="shareLocation()"
-            >
-              <i class="fab fa-whatsapp"></i> Share Live Location via WhatsApp
-            </button>
           </div>
+          
+
+          <button
+            class="whatsapp-button"
+            id="shareLocation"
+            onclick="shareLocation()"
+          >
+            <i class="fab fa-whatsapp"></i> Share Live Location via WhatsApp
+          </button>
         </div>
       </div>
 
+      <!-- Footer -->
       <div class="footer">
         <div class="offline-indicator">
           <i class="fas fa-wifi"></i>
@@ -498,15 +509,8 @@
       </div>
     </div>
 
-    <h1>Today’s Top Stories</h1>
-    <div class="news-section">
-      <div id="news-container"></div>
-    </div>
-    <!-- Show More button -->
-    <div class="btn-box">
-      <button id="load-more">Show More</button>
-    </div>
-    <!-- Footer -->
+    
+
     <footer>
       <div class="footer-section">
         <p>© 2025 Weather Forecast | Developed by Sigmaboyz</p>
