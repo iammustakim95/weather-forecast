@@ -829,6 +829,7 @@
 
 
 
+ 
    // Logout functionality
   document.getElementById('logoutLink').addEventListener('click', function (e) {
     e.preventDefault();
@@ -864,4 +865,62 @@
   }
 });
 
+
+
+
+
+
+
+
+
+
+const apiKeys = "66966615108a4f858c5a19049be59ad8";
+const newsContainer = document.getElementById("news-container");
+const loadMoreBtn = document.getElementById("load-more");
+
+const url =
+  `https://newsapi.org/v2/everything?` +
+  `q=("weather forecast" OR "climate change" OR climate)` +
+  `&language=en&sortBy=publishedAt&apiKey=${apiKeys}`;
+
+let allArticles = [];
+let itemsPerClick = 4; // how many articles to show each time
+let currentIndex = 0;
+
+fetch(url)
+  .then(res => res.json())
+  .then(data => {
+    allArticles = data.articles || [];
+    displayArticles(); // show first batch
+  })
+  .catch(err => {
+    console.error("Error fetching news:", err);
+    newsContainer.innerHTML = "<p>Failed to load news.</p>";
+    loadMoreBtn.style.display = "none";
+  });
+
+function displayArticles() {
+  const nextArticles = allArticles.slice(currentIndex, currentIndex + itemsPerClick);
+
+  nextArticles.forEach(article => {
+    const div = document.createElement("div");
+    div.classList.add("article");
+    div.innerHTML = `
+      <img src="${article.urlToImage || ''}" alt="news image">
+      <h2>${article.title}</h2>
+      <p>${article.description || ''}</p>
+      <a href="${article.url}" target="_blank">Read More</a>
+    `;
+    newsContainer.appendChild(div);
+  });
+
+  currentIndex += itemsPerClick;
+
+  // hide button if no more articles
+  if (currentIndex >= allArticles.length) {
+    loadMoreBtn.style.display = "none";
+  }
+}
+
+loadMoreBtn.addEventListener("click", displayArticles);
 
