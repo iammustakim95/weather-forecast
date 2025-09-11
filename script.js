@@ -772,8 +772,8 @@
           // If Web Share API is supported (mobile browsers)
           if (navigator.share) {
             navigator.share({
-              title: "My Location",
-              text: "Here is my current location:",
+              title: "My Current Location",
+              text: "🆘 ! Sharing my current location with you. 📍 Kindly check to ensure my safety. 🙏",
               url: mapsUrl
             }).catch(err => console.log("Share failed:", err));
           } else {
@@ -871,8 +871,6 @@
 
 
 
-
-
 // ==== CONFIG ====
 const apiKey = "3fe7b870d21073d089de4268ef258694";   // <-- put your personal GNews token here
 const newsContainer = document.getElementById("news-container");
@@ -931,4 +929,3 @@ function displayArticles() {
 }
 
 loadMoreBtn.addEventListener("click", displayArticles);
-
