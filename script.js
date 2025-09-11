@@ -873,7 +873,7 @@
 
 
 
-const apiKeys = "66966615108a4f858c5a19049be59ad8";
+const apiKeys = "3fe7b870d21073d089de4268ef258694";
 const newsContainer = document.getElementById("news-container");
 const loadMoreBtn = document.getElementById("load-more");
 
