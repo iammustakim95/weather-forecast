@@ -829,7 +829,6 @@
 
 
 
- 
    // Logout functionality
   document.getElementById('logoutLink').addEventListener('click', function (e) {
     e.preventDefault();
