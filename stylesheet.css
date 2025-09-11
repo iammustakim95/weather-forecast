@@ -1157,6 +1157,10 @@ input:checked + .slider:before {
   .temp-large {
     font-size: 64px;
   }
+   .current-weather {
+    flex-direction: column;
+    text-align: center;
+  }
   .weather-condition {
     font-size: 22px;
   }
@@ -1231,6 +1235,10 @@ input:checked + .slider:before {
   }
   .temp-large {
     font-size: 56px;
+  }
+    .current-weather {
+    flex-direction: column;
+    text-align: center;
   }
   .weather-condition {
     font-size: 20px;
@@ -1468,4 +1476,10 @@ input:checked + .slider:before {
 
 #load-more:hover {
   background-color: #217dbb;
+}
+
+
+
+.news {
+  margin-bottom: 50px;
 }
