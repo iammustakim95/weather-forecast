@@ -873,24 +873,33 @@
 
 
 
-const apiKeys = "3fe7b870d21073d089de4268ef258694";
+// ==== CONFIG ====
+const apiKey = "3fe7b870d21073d089de4268ef258694";   // <-- put your personal GNews token here
 const newsContainer = document.getElementById("news-container");
-const loadMoreBtn = document.getElementById("load-more");
+const loadMoreBtn  = document.getElementById("load-more");
 
+// GNews search endpoint
+// q supports spaces and OR logic, lang=en for English
 const url =
-  `https://newsapi.org/v2/everything?` +
+  `https://gnews.io/api/v4/search?` +
   `q=("weather forecast" OR "climate change" OR climate)` +
-  `&language=en&sortBy=publishedAt&apiKey=${apiKeys}`;
+  `&lang=en&sortby=publishedAt&max=50&token=${apiKey}`;
 
+// ==== STATE ====
 let allArticles = [];
-let itemsPerClick = 4; // how many articles to show each time
+let itemsPerClick = 4;
 let currentIndex = 0;
 
+// ==== FETCH ====
 fetch(url)
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return res.json();
+  })
   .then(data => {
+    // GNews returns { articles: [...] }
     allArticles = data.articles || [];
-    displayArticles(); // show first batch
+    displayArticles();
   })
   .catch(err => {
     console.error("Error fetching news:", err);
@@ -898,6 +907,7 @@ fetch(url)
     loadMoreBtn.style.display = "none";
   });
 
+// ==== RENDER ====
 function displayArticles() {
   const nextArticles = allArticles.slice(currentIndex, currentIndex + itemsPerClick);
 
@@ -905,7 +915,7 @@ function displayArticles() {
     const div = document.createElement("div");
     div.classList.add("article");
     div.innerHTML = `
-      <img src="${article.urlToImage || ''}" alt="news image">
+      <img src="${article.image || ''}" alt="news image">
       <h2>${article.title}</h2>
       <p>${article.description || ''}</p>
       <a href="${article.url}" target="_blank">Read More</a>
@@ -915,7 +925,6 @@ function displayArticles() {
 
   currentIndex += itemsPerClick;
 
-  // hide button if no more articles
   if (currentIndex >= allArticles.length) {
     loadMoreBtn.style.display = "none";
   }
