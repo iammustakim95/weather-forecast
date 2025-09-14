@@ -798,10 +798,26 @@
     const email = document.getElementById('userEmail').value.trim();
     const contact = document.getElementById('emergencyContact').value.trim();
 
-    if (!name || !email || !contact) {
-      alert('Please fill out all fields.');
-      return;
-    }
+   if (!name || !email || !contact) {
+  alert('Please fill out all fields.');
+  return;
+}
+
+// Check if contact contains only numbers
+if (!/^\d+$/.test(contact)) {
+  alert('Phone number must contain only digits.');
+  return;
+}
+
+// Check if email is in a valid format
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailPattern.test(email)) {
+  alert('Please enter a valid email address.');
+  return;
+}
+
+// If all checks pass
+alert('Form submitted successfully!');
 
     // Hide the modal
     document.getElementById('registrationModal').style.display = 'none';
