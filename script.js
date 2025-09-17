@@ -945,3 +945,34 @@ function displayArticles() {
 }
 
 loadMoreBtn.addEventListener("click", displayArticles);
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const signupTab = document.getElementById("signupTab");
+  const loginTab = document.getElementById("loginTab");
+  const signupForm = document.getElementById("registrationForm");
+  const loginForm = document.getElementById("loginForm");
+
+  // default state: show signup, hide login
+  signupForm.style.display = "block";
+  loginForm.style.display = "none";
+
+  signupTab.addEventListener("click", function () {
+    signupForm.style.display = "block";
+    loginForm.style.display = "none";
+    signupTab.classList.add("active");
+    loginTab.classList.remove("active");
+  });
+
+  loginTab.addEventListener("click", function () {
+    signupForm.style.display = "none";
+    loginForm.style.display = "block";
+    loginTab.classList.add("active");
+    signupTab.classList.remove("active");
+  });
+});
