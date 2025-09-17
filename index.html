@@ -100,13 +100,46 @@
       <span></span>
     </div>
 
-  <!-- Registration Modal -->
+  
+    <!-- Form Modal -->
+
     <div class="modal-overlay" id="registrationModal">
+     
+       
       <div class="modal">
-        <h2><i class="fas fa-user-plus"></i> Complete Registration</h2>
+     
+         <div class="toggle-buttons">
+         <button id="signupTab" class="active">Signup</button>
+         <button id="loginTab">Login</button>
+      </div>
+     
+  
+
+      <!-- Login Form -->
+        <form id="loginForm">
+             
+         
+          <div class="form-group">
+            <label for="userEmail">Email Address</label>
+            <input type="email" id="userEmail" placeholder="Enter your email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="Contact">Contact Number</label>
+            <input
+              type="tel"
+              id="Contact"
+              placeholder="Enter Your contact number"
+            />
+          </div>
+          <button class="btn" id="loginBtn">Login</button>
+       
+      </form>
+  
 
         <!-- Registration Form -->
-        <div id="registrationForm">
+          <form id="registrationForm">
+
           <div class="form-group">
             <label for="userName">Full Name</label>
             <input
@@ -118,29 +151,24 @@
 
           <div class="form-group">
             <label for="userEmail">Email Address</label>
-            <input type="email" id="userEmail" placeholder="Enter your email" />
-          </div>
-
-               <div class="form-group">
-            <label for="password">Password </label>
-            <input type="password" id="password" />
+            <input type="email" id="userEmail" placeholder="Enter your email" required />
           </div>
 
           <div class="form-group">
             <label for="Contact">Contact Number</label>
             <input
               type="tel"
-              id="contact"
+              id="Contact"
               placeholder="Enter Your contact number"
             />
           </div>
 
           <div class="form-group">
-            <label for="emergencyContact">Emergency Contact Number </label>
+            <label for="emergencyContact">Emergency Contact Number</label>
             <input
               type="tel"
               id="emergencyContact"
-              placeholder="Enter Your Emergency contact number"
+              placeholder="Enter Emergency Contact number"
             />
           </div>
 
@@ -149,11 +177,11 @@
             <span>Auto location access enabled for emergency services</span>
           </div>
 
-          <button class="btn" id="registerBtn" onclick="verifyOtp()">
-            Register
-          </button>
+          <button class="btn" id="registerBtn">Register</button>
         </div>
-      </div>
+      </form>
+      
+         </div>
     </div>
 
     <div class="container">
