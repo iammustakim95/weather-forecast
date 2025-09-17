@@ -1483,3 +1483,37 @@ input:checked + .slider:before {
 .news {
   margin-bottom: 50px;
 }
+
+
+
+
+
+.toggle-buttons{
+  display: flex;
+  flex-direction:row;
+  gap: 50px;
+  margin-bottom: 20px;
+}
+
+
+.toggle-buttons button.active {
+  background-color:var(--primary);
+
+}
+
+.toggle-buttons button {
+  background:gray;
+  color: white;
+  border: none; 
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+.toggle-buttons button:hover{
+      animation: pulse 1.5s infinite;
+
