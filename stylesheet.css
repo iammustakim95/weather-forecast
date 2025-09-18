@@ -1488,6 +1488,7 @@ input:checked + .slider:before {
 
 
 
+
 .toggle-buttons{
   display: flex;
   flex-direction:row;
@@ -1516,4 +1517,59 @@ input:checked + .slider:before {
 }
 .toggle-buttons button:hover{
       animation: pulse 1.5s infinite;
+}
 
+
+
+
+.form-group-login {
+  margin-bottom: 20px;
+}
+
+.form-group-login label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group-login input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: var(--glass-border);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-group-login input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.form-group-login input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+
+.loginBtn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.loginBtn:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+}
