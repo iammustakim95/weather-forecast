@@ -1295,7 +1295,7 @@ input:checked + .slider:before {
 }
 
 .logo1 {
-  height: 50px;
+  height: 70px;
   width: auto;
   border-radius: 50%;
   margin-right: 20px;
@@ -1618,5 +1618,6 @@ input:checked + .slider:before {
   display: flex;
   justify-content: flex-end;
 }
+
 
 
