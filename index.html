@@ -100,46 +100,51 @@
       <span></span>
     </div>
 
-  
-   <!-- Form Modal -->
-
+    <!-- Registration Modal -->
     <div class="modal-overlay" id="registrationModal">
-     
-       
       <div class="modal">
-     
-         <div class="toggle-buttons">
-         <button id="signupTab" class="active">Signup</button>
-         <button id="loginTab">Login</button>
-      </div>
-     
-  
-
-      <!-- Login Form -->
-        <form id="loginForm">
-             
-         
+        <!-- Login Form -->
+        <form id="loginForm" class="loginForm">
+          <div class="containers">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="animate-charcter">Welcome Back</h3>
+              </div>
+            </div>
+          </div>
           <div class="form-group-login">
             <label for="email-login">Email Address</label>
-            <input type="email" id="email-login" placeholder="Enter your email" required />
+            <input
+              type="email"
+              id="email_login"
+              placeholder="Enter your email"
+              required
+            />
           </div>
 
           <div class="form-group-login">
-            <label for="Password-login">Password</label>
+            <label for="password_login">Password</label>
             <input
               type="password"
-              id="Password-login"
-              placeholder="********"
+              id="password_login"
+              placeholder="*******"
+              required
             />
           </div>
-          <button class="loginBtn" id="loginBtn">Login</button>
-       
-      </form>
-  
+          <div class="loginBtn-box">
+            <button class="loginBtn" id="loginBtn">Login</button>
+          </div>
+        </form>
 
         <!-- Registration Form -->
-          <form id="registrationForm">
-
+        <form id="registrationForm">
+          <div class="containers">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <h3 class="animate-charcter">Registration Form</h3>
+              </div>
+            </div>
+          </div>
           <div class="form-group">
             <label for="userName">Full Name</label>
             <input
@@ -151,12 +156,24 @@
 
           <div class="form-group">
             <label for="userEmail">Email Address</label>
-            <input type="email" id="userEmail" placeholder="Enter your email" required />
+            <input
+              type="email"
+              id="userEmail"
+              placeholder="Enter your email"
+              required
+            />
           </div>
-            <div class="form-group">
+
+          <div class="form-group">
             <label for="Password">Password</label>
-            <input type="password" id="password" placeholder="********" />
-            </div>
+            <input
+              type="password"
+              id="passwordHash"
+              placeholder="********"
+              required
+            />
+          </div>
+
           <div class="form-group">
             <label for="Contact">Contact Number</label>
             <input
@@ -181,29 +198,20 @@
           </div>
 
           <button class="btn" id="registerBtn">Register</button>
-        </div>
-      </form>
-      
-         </div>
-    </div>
+        </form>
+        <div class="toggle-buttons">
+          <button id="signupTab" class="active">Signup Now</button>
 
-          <div class="location-access">
-            <i class="fas fa-check-circle"></i>
-            <span>Auto location access enabled for emergency services</span>
-          </div>
-
-          <button class="btn" id="registerBtn">Register</button>
+          <button id="loginTab">Already have an account Login here</button>
         </div>
-      </form>
-      
-         </div>
+      </div>
     </div>
 
     <div class="container">
       <!-- Top Bar -->
       <div class="top-bar">
         <div class="logo">
-          <img src="images/weather-app.png" class="logo1" />
+          <img src="/images/weather-app.png" class="logo1" />
           <div class="title-name">Weather Forecast</div>
         </div>
 
@@ -244,7 +252,7 @@
               align-items: center;
             "
           >
-            <img src="images/account.png" alt="Profile" class="toggle-image" />
+            <img src="/images/account.png" alt="Profile" class="toggle-image" />
 
             <i class="fas fa-caret-down" style="margin-left: 5px"></i>
           </button>
@@ -265,7 +273,7 @@
           >
             <p><span id="userDisplayName">User Name</span></p>
             <button>
-              <img src="images/logout.jpeg" alt="logout" class="logout-logo" />
+              <img src="/images/logout.jpeg" alt="logout" class="logout-logo" />
               <a href="#" id="logoutLink">Logout</a>
             </button>
           </div>
