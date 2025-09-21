@@ -779,12 +779,11 @@ input:checked + .slider:before {
 
 .modal {
   background: var(--card-bg);
-  border-radius: 20px;
+  border-radius: 50px;
   padding: 30px;
   width: 100%;
-  max-width: 500px;
+   max-width: 450px;         /* ↓ overall max width */
   box-shadow: var(--glass-shadow);
-  border: var(--glass-border);
   backdrop-filter: blur(10px);
   color: white;
 }
@@ -801,17 +800,18 @@ input:checked + .slider:before {
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  font-weight: 500;
+  font-weight: 100;
+ 
 }
 
 .form-group input {
-  width: 100%;
-  padding: 12px 15px;
-  border-radius: 10px;
+  width: 98%;
+  padding: 10px 12px;
+  border-radius: 50px;
   border: var(--glass-border);
   background: rgba(255, 255, 255, 0.1);
   color: white;
-  font-size: 16px;
+  font-size: 10px;
   transition: all 0.3s ease;
 }
 
@@ -837,6 +837,7 @@ input:checked + .slider:before {
   width: 100%;
   transition: all 0.3s ease;
   margin-top: 10px;
+
 }
 
 .btn:hover {
@@ -957,24 +958,8 @@ input:checked + .slider:before {
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* OTP Verification */
-.otp-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin: 20px 0;
-}
 
-.otp-input {
-  width: 100%;
-  height: 50px;
-  text-align: center;
-  font-size: 20px;
-  border-radius: 10px;
-  border: var(--glass-border);
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-}
+
 
 /* Data Protection */
 .data-protection {
@@ -1493,33 +1478,32 @@ input:checked + .slider:before {
   display: flex;
   flex-direction:row;
   gap: 50px;
-  margin-bottom: 20px;
+
 }
 
 
 .toggle-buttons button.active {
-  background-color:var(--primary);
-
+  visibility: hidden;
 }
 
+
 .toggle-buttons button {
-  background:gray;
+  background:none;
   color: white;
   border: none; 
-  border-radius: 10px;
-  padding: 12px 20px;
+  border-radius: 20px;
+
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   width: 100%;
   transition: all 0.3s ease;
   margin-top: 10px;
+  margin-bottom: 1px;
 }
 .toggle-buttons button:hover{
       animation: pulse 1.5s infinite;
 }
-
-
 
 
 .form-group-login {
@@ -1529,7 +1513,7 @@ input:checked + .slider:before {
 .form-group-login label {
   display: block;
   margin-bottom: 8px;
-  font-weight: 500;
+
 }
 
 .form-group-login input {
@@ -1553,23 +1537,85 @@ input:checked + .slider:before {
   color: rgba(255, 255, 255, 0.6);
 }
 
+#login_title{
+  margin-top: 30px;
+  margin-bottom: 50px;
+  font-size: 3.5rem;
+  font-family: 'Brush Script MT', cursive;
+  font-weight: 100;
+}
 
 
 .loginBtn {
-  background: var(--primary);
-  color: white;
+  background: #e3cf30;
+  color: rgb(0, 0, 0);
   border: none;
   border-radius: 10px;
   padding: 12px 20px;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 500;
   cursor: pointer;
-  width: 100%;
+  width: 130px;
   transition: all 0.3s ease;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .loginBtn:hover {
-  background: var(--secondary);
+  background: #00ff48;
   transform: translateY(-2px);
+}
+.col-md-12{
+   text-align: center;
+}
+
+.animate-charcter{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+  background-image: linear-gradient(
+    -225deg,
+    #e3cf30 0%,
+    #da741a 29%,
+    #ff1361 67%,
+    #00ff48 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 5s linear infinite;
+  display: inline-block;
+      font-size:2rem ;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+#registerBtn {
+  background: #e3cf30;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 130px;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+#registerBtn:hover{
+  background: #00ff48;
+  transform: translateY(-2px);
+}
+
+.loginBtn-box {
+  display: flex;
+  justify-content: flex-end;
 }
