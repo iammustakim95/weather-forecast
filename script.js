@@ -81,35 +81,11 @@
             searchInput.addEventListener('input', handleSearchInput);
             detectLocationBtn.addEventListener('click', detectLocation);
             shareLocationBtn.addEventListener('click', shareLocation);
-            registerBtn.addEventListener('click', registerUser);
-            verifyOtpBtn.addEventListener('click', verifyOtp);
-            backToRegister.addEventListener('click', showRegistrationForm);
-            resendOtp.addEventListener('click', generateOtp);
             registerTrigger && registerTrigger.addEventListener('click', showRegistration);
             autoBackup.addEventListener('change', toggleAutoBackup);
             
-            // OTP digit inputs
-            const otpDigits = document.querySelectorAll('.otp-digit');
-            otpDigits.forEach((digit, index) => {
-                digit.addEventListener('input', (e) => {
-                    if (e.target.value.length === 1 && index < otpDigits.length - 1) {
-                        otpDigits[index + 1].focus();
-                    }
-                });
-                
-                digit.addEventListener('keydown', (e) => {
-                    if (e.key === 'Backspace' && e.target.value.length === 0 && index > 0) {
-                        otpDigits[index - 1].focus();
-                    }
-                });
-            });
-            
-            // Close suggestions when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!searchInput.contains(e.target)) {
-                    suggestionsContainer.classList.remove('visible');
-                }
-            });
+        
+               
             
             // Check registration
             checkRegistration();
@@ -974,5 +950,104 @@ document.addEventListener("DOMContentLoaded", function () {
     loginForm.style.display = "block";
     loginTab.classList.add("active");
     signupTab.classList.remove("active");
+  });
+});
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('registrationForm');
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const userName = document.getElementById('userName').value.trim();
+    const userEmail = document.getElementById('userEmail').value.trim();
+    const contact = document.getElementById('Contact').value.trim();
+    const emergencyContact = document.getElementById('emergencyContact').value.trim();
+    const passwordHash = document.getElementById('passwordHash').value.trim(); // NEW
+
+    if (!userName || !userEmail || !contact || !emergencyContact || !passwordHash) {
+      alert('Please fill out all fields.');
+      return;
+    }
+
+    fetch('http://localhost:5000/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userName, userEmail, contact, emergencyContact, passwordHash }) // include new field
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        alert(data.message);
+        form.reset();
+
+        const registrationModal = document.getElementById('registrationModal');
+        if (registrationModal) registrationModal.style.display = 'none';
+
+        const mainPage = document.getElementById('mainPage');
+        if (mainPage) mainPage.style.display = 'block';
+      } else {
+        alert(data.message || 'Registration failed!');
+        location.reload();
+      }
+    })
+    .catch(err => {
+      console.error('Error:', err);
+      alert('❌ Server error! Try again.');
+      location.reload();
+    });
+  });
+});
+
+
+
+
+
+
+
+
+// login page verification 
+// login.js
+document.addEventListener("DOMContentLoaded", function () {
+  const loginForm = document.getElementById("loginForm");
+
+  loginForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const email    = document.getElementById("email-login").value.trim();
+    const password = document.getElementById("Password-login").value.trim();
+
+    try {
+      const response = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+      alert(data.message);
+
+      if (data.success) {
+        // Optional redirect
+        // window.location.href = "/dashboard.html";
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Please try again.");
+    }
   });
 });
