@@ -1546,8 +1546,9 @@ input:checked + .slider:before {
 }
 
 
+
 .loginBtn {
-  background: #e3cf30;
+  background: #4285f4;
   color: rgb(0, 0, 0);
   border: none;
   border-radius: 10px;
@@ -1561,7 +1562,7 @@ input:checked + .slider:before {
 }
 
 .loginBtn:hover {
-  background: #00ff48;
+  background: #1a73e8;
   transform: translateY(-2px);
 }
 .col-md-12{
@@ -1573,9 +1574,9 @@ input:checked + .slider:before {
   text-transform: capitalize;
   background-image: linear-gradient(
     -225deg,
-    #e3cf30 0%,
-    #da741a 29%,
-    #ff1361 67%,
+    #4285f4 0%,
+    #dacd1ad9 29%,
+    #1a73e8 67%,
     #00ff48 100%
   );
   background-size: auto auto;
@@ -1597,7 +1598,7 @@ input:checked + .slider:before {
 }
 
 #registerBtn {
-  background: #e3cf30;
+  background:  #4285f4;
   color: rgb(0, 0, 0);
   border: none;
   border-radius: 10px;
@@ -1610,7 +1611,7 @@ input:checked + .slider:before {
   margin-top: 20px;
 }
 #registerBtn:hover{
-  background: #00ff48;
+  background: #1a73e8;
   transform: translateY(-2px);
 }
 
@@ -1618,6 +1619,4 @@ input:checked + .slider:before {
   display: flex;
   justify-content: flex-end;
 }
-
-
 
