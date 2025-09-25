@@ -738,16 +738,16 @@ input:checked + .slider:before {
   position: fixed;
   top: 20px;
   right: 20px;
-  background: rgba(255, 255, 255, 0.95);
+  background: #ffffffa2;
   color: var(--dark);
   border-radius: 10px;
-  padding: 15px 20px;
+  padding: 10px 15px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   transform: translateX(120%);
   transition: transform 0.4s ease;
   z-index: 5000;
   max-width: 350px;
-  display: flex;
+  display: flex;  
   align-items: flex-start;
   gap: 15px;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -1546,7 +1546,6 @@ input:checked + .slider:before {
 }
 
 
-
 .loginBtn {
   background: #4285f4;
   color: rgb(0, 0, 0);
@@ -1575,9 +1574,9 @@ input:checked + .slider:before {
   background-image: linear-gradient(
     -225deg,
     #4285f4 0%,
-    #dacd1ad9 29%,
+    #ffffffd9 29%,
     #1a73e8 67%,
-    #00ff48 100%
+    #4285f4 100%
   );
   background-size: auto auto;
   background-clip: border-box;
@@ -1619,4 +1618,3 @@ input:checked + .slider:before {
   display: flex;
   justify-content: flex-end;
 }
-
