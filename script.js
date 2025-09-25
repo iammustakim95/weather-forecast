@@ -858,11 +858,7 @@ alert('Form submitted successfully!');
 
 
 
-
-
-
-
-
+// News functionality
 // ==== CONFIG ====
 const apiKey = "3fe7b870d21073d089de4268ef258694";   // <-- put your personal GNews token here
 const newsContainer = document.getElementById("news-container");
@@ -925,9 +921,7 @@ loadMoreBtn.addEventListener("click", displayArticles);
 
 
 
-
-
-
+// toggle button Functionality 
 document.addEventListener("DOMContentLoaded", function () {
   const signupTab = document.getElementById("signupTab");
   const loginTab = document.getElementById("loginTab");
@@ -956,15 +950,7 @@ document.addEventListener("DOMContentLoaded", function () {
  
 
 
-
-
-
-
-
-
-
-
-
+// Store data in Database functionality
 
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('registrationForm');
@@ -1022,32 +1008,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // login page verification 
 // login.js
-document.addEventListener("DOMContentLoaded", function () {
-  const loginForm = document.getElementById("loginForm");
+document.addEventListener('DOMContentLoaded', function () {
+  const loginForm = document.getElementById('loginForm');
+  if (!loginForm) return;
 
-  loginForm.addEventListener("submit", async function (e) {
+  loginForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const email    = document.getElementById("email-login").value.trim();
-    const password = document.getElementById("Password-login").value.trim();
+    const email = document.getElementById('email_login').value.trim();
+    const password = document.getElementById('password_login').value.trim();
+    console.log('Email Input Value:', document.getElementById('email_login').value);
+    console.log('Password Input Value:', document.getElementById('password_login').value);
 
-    try {
-      const response = await fetch("http://localhost:5000/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
 
-      const data = await response.json();
-      alert(data.message);
-
-      if (data.success) {
-        // Optional redirect
-        // window.location.href = "/dashboard.html";
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong. Please try again.");
+    if (!email || !password) {
+      alert('Please fill out both fields.');
+      return;
     }
+
+    fetch('http://localhost:5000/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          alert(data.message);
+          // Example: store user info or redirect
+          // localStorage.setItem('user', JSON.stringify(data.user));
+          
+           registrationModal.style.display = 'none';  // hide modal
+           const displayName = data.user?.name || document.getElementById('email_login').value;
+
+         // Set the name in the profile section
+         document.getElementById('userDisplayName').textContent = displayName;
+
+         // Show the profile toggle container
+         document.getElementById('profileToggle').style.display = 'flex';
+        } else {
+          alert(data.message);
+        }
+      })
+      .catch(err => {
+        console.error('Error:', err);
+        alert('❌ Server error! Try again.');
+      });
   });
 });
