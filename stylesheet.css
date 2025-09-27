@@ -1300,12 +1300,7 @@ input:checked + .slider:before {
   border-radius: 50%;
   margin-right: 20px;
 }
-.logout-logo  {
-  height: 20px;
-  width: auto;
-  
- 
-}
+
 
 
 
@@ -1315,22 +1310,20 @@ input:checked + .slider:before {
     font-size: medium;
 }
 
-.profileToggle button{
-  margin-top: 10px;
-   border-radius: 10%;
-   background-color: #ccc;
-   padding: 5px;
-}
-.profileToggle button a{
-   text-decoration: none;
-   color: #1b263b;
-   font-size: medium;
-   text-align: center;
-    line-height: 10px; 
 
-   
+.logoutLink {
+  margin-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: 500;
+  border: none;
+  font-size: medium;
+  background: #d5d1d1cb;
+  letter-spacing: 2px;
 }
-
+.logoutLink:hover{
+  background: var(--danger);
+}
 
 
 

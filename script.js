@@ -795,6 +795,7 @@ if (!emailPattern.test(email)) {
 // If all checks pass
 alert('Form submitted successfully!');
 
+
     // Hide the modal
     document.getElementById('registrationModal').style.display = 'none';
 
@@ -823,8 +824,9 @@ alert('Form submitted successfully!');
 
    // Logout functionality
   document.getElementById('logoutLink').addEventListener('click', function (e) {
+    location.reload();
     e.preventDefault();
-
+    
     // Hide profile toggle
     document.getElementById('profileToggle').style.display = 'none';
 
@@ -841,13 +843,12 @@ alert('Form submitted successfully!');
   });
 
 
+
+
+
   function callNow(number) {
       window.location.href = "tel:" + number;
     }
-
-
-
-
 
 
   document.addEventListener('click', (e) => {
